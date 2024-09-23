@@ -1,0 +1,685 @@
+﻿<!DOCTYPE html>
+<html class="js canvas canvastext no-touch hashchange history draganddrop rgba multiplebgs borderimage boxshadow textshadow cssgradients csstransitions sessionstorage" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>RigBox - Rig Control Objects creation tool</title>
+		<link rel="stylesheet" href="./html_sources/dreamcraftdocs.css">
+	</head>
+	<body>
+		<div id="main" class="dcdc-helpdoc-page">
+			<div id="content">
+				<div id="helpdoc-head">
+					<img id="helpdoc-head-icon" src="./RigBox.png" alt="RigBox - Rig Control Objects creation Tool">
+					<div id="helpdoc-head-description">
+						<h1 id="helpdoc-product-title">RigBox - Rig Control Objects creation tool</h1>
+						<div class="clear"></div>
+						<hr>
+						<div class="seller">David Saber <a href="https://www.dreamcraftdigital.com">www.dreamcraftdigital.com</a></div>
+						<div class="description">This is a robust tool for creating Control Objects for your rigs. A successor to Jennifer Conley's RigBox Reborn Curve Tool.</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+				<div id="helpdoc-tag">
+						<a href="#description" class="helpdoc-breadcrumb">Description</a> 
+						<a href="#inunininfo" class="helpdoc-breadcrumb">Installation/Uninstallation</a>
+						<a href="#generalinfo" class="helpdoc-breadcrumb">General Usage Instructions</a>
+						<a href="#screensinfo" class="helpdoc-breadcrumb">Screenshots</a>
+						<a href="#addinfo" class="helpdoc-breadcrumb">Development history</a>
+						<a href="#todo" class="helpdoc-breadcrumb">Todo</a>
+						<a href="#contactinfo" class="helpdoc-breadcrumb">Contact and credits</a>
+						<a href="#versionhistoryinfo" class="helpdoc-breadcrumb">Version History</a>  
+					<div class="clear"></div>
+				</div>
+				<br />
+				<div class="helpdoc-element description">
+					<div class="clear"></div>
+					<h1 id="description" class="descriptiontit">Description</h1>
+					<div class="helpdoc-text"> 
+						<div class="description">
+							<br />
+							<p>This tool is a rig helper. It's used in Maya to help with control objects and icon creation, and other basic rig construction tasks.
+							The Curves Tool script contains commonly used features such as :<br />
+							- Control objects creation, with various shapes to choose from. Creation of multiple objects at once.<br />
+							- Colorizing options.<br />
+							- Preset and custom attribute creation.<br />
+							- Control clean up options such as zeroing out the curves using freeze transformations. Lock and hide made easy and quick!<br />
+							This script was first developped by Jennifer Conley in 2012 and then by myself : David Saber, since 2022.
+							</p>
+							<br />
+							<h2>V4.03 : first public release since the Python re-write started:</h2>
+							<p>With Maya 2025, the V3.x Pymel RigBox script does not run anymore. For my students, I had to speed up the developpment of V4.x, a full Python, non-Pymel version.
+							I got the main tools up and running :<br />
+							- curve creations<br />
+							- curve coloring<br />
+							- lock and hide<br />
+							- object naming.<br />
+							This is the first public release, the essential functions are working, but some others are not. I hope to restore all tools in the future.
+							</p>
+						</div>
+					</div>
+					<br /><br />
+				</div>
+				<div class="helpdoc-element ">
+					<div class="clear"></div>
+					<h1 id="inunininfo" class="descriptiontit">Installation / Uninstallation</h1>
+					<div class="helpdoc-text">
+						<p>
+							<br />
+							<h2>V4 by David, Pymel not required:</h2>
+							1) Unpack the folder "RigBox" and copy it inside the user folder: Documents\maya\scripts<br />
+							2) Open RigBox_Launcher.py with a text editor, and copy all text inside<br />
+							3) In Maya, in the rigging shelf, open the shelf editor: the gear in the bottom left.<br />
+							4) In the "shelf content" column, use the "new item" button to add a new button, then choose its position in the shelf using the "move up" and "move down" buttons.<br />
+							5) With the "user script" selected, go to the command tab, first choose "Python" radio button. Then paste the code you copied from RigBox_Launcher.py.<br />
+							6) Back to the "shelves" tab, you can personalise the button by choosing the RigBox.png as the icon name, setting up the tooltip and the icon label, etc.<br />
+							7) Click the button "Save all shelves", this will close the shelf editor<br />
+							8) Click the button to start the script.<br />
+							9) To uninstall, delete the button and the script folder.<br />
+							<br />
+							<h2>V3 by David, Pymel required:</h2>
+							For those still using the V3.x Pymel script:<br /><br />
+							A) HOW TO INSTALL: PYMEL<br />
+							1) First install Pymel in Maya 2022 (or check if it's already installed: read next line). PyMEL is an optional item when you install Maya 2022, you could run the installer again and tick the PyMEL box to install it. If you didn't install it during the Maya installation process, follow the instructions below.<br />
+							2) Lets check if its really installed: navigate to maya installation folder, usually located at C:\Program Files\Autodesk\Maya2024. Find the folder "bin", select it, and while holding down shift press RMB (right mouse button) to open modified context menu, from there find and click "open in powerShell" or "open in terminal".<br />
+							3) In Powershell or Terminal, you should see this:<br />
+								PS <installed_path>Maya2022\bin><br />
+							4) You must use this command : <br />
+								.\mayapy.exe -m pip list<br />
+							To get this command, just type mayapy and press [TAB] (it will expand like .\mayapy.exe) then continue typing " -m pip list". then you should see this:<br />
+								PS <installed_path>Maya2022\bin> .\mayapy.exe -m pip list<br />
+							5) If you see this, press enter<br />
+							6) If you get something like this, it means there is no pymel:<br />
+								future 0.18.2<br />
+								pip 20.2.2<br />
+								PySide2 5.15.2<br />
+								setuptools 41.2.0<br />
+								shiboken2 5.15.2<br />
+								shiboken2-generator 5.15.2<br />
+							7) Then you need to install Pymel this way:<br />
+								.\mayapy.exe -m pip install pymel<br />
+							8) After installation is complete you can check it again, using :<br />
+								.\mayapy.exe -m pip list<br />
+							9) If you get something like this, it means Pymel is now installed:<br />
+								future 0.18.2<br />
+								pip 21.2.2<br />
+								pymel 1.4.0<br />
+								PySide2 5.15.2<br />
+								setuptools 41.2.0<br />
+								shiboken2 5.15.2<br />
+								shiboken2-generator 5.15.2<br />
+							10) You're ready to go! no need to modify PATH environment variable. <br />
+							11) If you receive message that new version of pip installer is available, and if you wish to upgrade it, use this cmd:<br />
+								.\mayapy.exe -m pip install --upgrade pip<br />
+							12) That's it. For more info, You can also check this discussion : https://forums.autodesk.com/t5/maya-programming/maya-2022-pymel-how-to-import/m-p/10409310 <br />
+							<br />
+							B) HOW TO INSTALL: RIGBOX SCRIPT<br />
+							Now install Rigbox in Maya 2022-2023 following these instructions below.<br />
+							1) Go to your Maya preference folder, usually it's in Documents\Maya. Go inside the folder Documents\Maya\scripts .<br />
+							2) Unzip/Unrar the file "Rigbox Reborn Curve Tool Python 3.rar", place the "RigBox3" folder into the folder Documents\Maya\scripts<br />
+							3) Once the files have been placed correctly, start or restart Maya.<br />
+							4) Copy and paste the following lines of code into the Script Editor, Python tab, and click the Execute button.<br />
+							import RigBox3.rr_main_curves<br />
+							RigBox3.rr_main_curves.window_creation()<br />
+							5) A Rigbox Windows should popup.<br />
+							6) Get the script as a permanent button in Maya's interface: in Maya, display the Rigging tool tab. In the script editor, select these 2 Python lines. Middle click and drag them to the right end of the Rigging tool tab. An ugly button should appear.<br />
+							7) Right click the button and choose edit. Go to the "Shelves" tab. Click the folder button on the right side of "Icon name", browse to where you put the rigbox files. Pick the file: "rr_RigBox3_icon.png". You can also type "RigBox" in ""Icon label".<br />
+							8) Voila! Cheers, Jen and David<br />
+						</p>
+					</div>
+					<br /><br />
+				</div>
+				<div class="helpdoc-element ">
+					<div class="clear"></div>
+					<h1 id="generalinfo" class="descriptiontit">General Usage Instructions</h1>
+					<div class="helpdoc-text">
+						<br />
+						<h2>Starting</h2>
+						To start the process, click the RigBox button.<br />
+						Follow the info video, it's an old video made by Jen, but it's still useful. <a href="https://www.dreamcraftdigital.com/wp-content/uploads/assets/RigBoxReborn_CurvesTool_2012.mp4">DreamCraft Link</a>. <a href="https://vimeo.com/45206205">Vimeo Link</a>.<br />
+						<br />
+						
+						<h2>Creation</h2>
+						<strong>Unfold the "Creation" section:</strong><br />
+						This is a custom GUI to easily create commonly used control icons for rig construction. Includes 2D, 3D, and text based curves.
+						It provides features for:<br />
+						- Priming controls based on a selected transform node, or a hierarchy of nodes.<br />
+						- Naming control objects.<br />
+						- Naming priming groups<br />
+						- Constraining selected transform node, with Parent or Orient constraint options<br />
+						<strong>How to:</strong><br />
+						- Optional: enter a name, a prefix and a suffix, for the object that will be created. If you don't enter text, the object you will create at a later step will get the clicked button's name.<br />
+						- Optional: manage snapping and grouping options: read below.<br />
+						- Click a button to choose a curve object with a personalized shape.<br />
+						- The object will be created at the center of the scene, or snapped to other object if you set the snapping and grouping options.<br />
+						<br />
+						
+						<h2>Grouping</h2>
+						<strong>Unfold the "Creation" section</strong>. Under "Control naming", in the right drop down, choose "group".<br />
+						Sometimes you need to zero-out control objects of which the axis must remain tilted. A good example is fingers setup. A traditional method in Maya is to use double grouping.
+						The method to do this is described in Jennifer Conley's video about RigBox Curve Tool (check link above, under "Starting").<br />
+						<br />
+						<strong>Here's how you would do it manually</strong> for a control object that may constrain a target object :<br />
+						- Create a target object that is tilted, such as an arm joint.<br />
+						- Using RigBox, create a control object and name it as such.<br />
+						- Place the control object on the target object such as the bone root.<br />
+						- Freeze transforms the control object.<br />
+						- Control object becomes child to the target object.<br />
+						- Double group the Control object: CTRL+G, CTRL+G.<br />
+						- Unparent the top group to put it at the Outliner root with SHIFT+P.<br />
+						- Control object : freeze transforms it again.<br />
+						- The Control object now has the same local axis as the object to constrain.<br />
+						<br />
+						<strong>RigBox will automate things for you</strong> :<br />
+						- Create an target object that is tilted, such as an arm joint.<br />
+						- Using RigBox, create a Control object.<br />
+						- Place the Control object on the target object such as bone root.<br />
+						- Under grouping options, left drop down: choose if you want to adapt a single object, or create then adapt multiple objects on a full joint chain, except on the last joint.<br />
+						- Under grouping options, middle drop down: choose if the multiple objects to be created won't have a parent ("default" setting: they'll be all at the Outliner's root) or if they will be organised in a parent child hierarchy.
+						The "Hierarchy" option needs the "chain" option to be selectd in the left drop down.<br />
+						- Under grouping options, right drop down: choose if you want this Control object to constrain the target object, in Orient or Parent.<br />
+						- Select Control Object, shift select target object. The curve must be selected first, then the transform node. This selection order was choosen because it replicates actual parenting inside of Maya.<br />
+						- Click apply : The Control object now has the same local axis as the target object.<br />
+						- Under "Control naming", in the right drop down, if you keep "group" selected, it will always obey the rules you set in the "Grouping Options" section.<br />
+						<br />
+						
+						<h2>Snapping</h2>
+						<strong>Unfold the "Creation" section</strong>. Under "Control naming", in the left drop down, choose "snap".<br />
+						Create an object to snap the RigBox control to. Move and rotate it. Select this object. Click a curve creation button. The Control curve's translation, rotation (but not the scale), will match the selected object.<br />
+						<br />
+						
+						<br />
+						<h2>Coloring</h2>
+						<strong>Unfold the "Coloring" section:</strong><br />
+						It's a script to quickly color control icons for a rig. Able to be run on a selection. Also has options for templating an object.<br />
+						Once the object is created, click a button to color it.<br />
+						Click the buttons for templating the object. The "template attr" button will add a channel in the channel box that will allow you to switch between templated and untemplated.<br />
+						<br />
+						
+						<h2>Attributes</h2>
+						<strong>Unfold the "Attributes" section:</strong><br />
+						This section will create attributes, also called "customized channels".<br />
+						It's a custom GUI to easily add common attributes to objects. The "Preset Options" part will add a bunch of channels.
+						For example, the "IK Foot" button will add custom channels such as "Foot Roll" and such. But the connections such as driven keys must be setup manually.<br />
+						The "Custom Options" part allows for additonal, custom attributes, to be added to objects without having to navigate to other windows. Its "Create" button will add a single attribute in the channel box.
+						First choose a data type : float, integer, boolean or "Sep". Then Type a name for the new channel. Then choose a min and max value. Then click Create.<br />
+						The "Sep" data type isn't really a data type. It will create a dotted line separator in the channel box.<br />
+						<br />
+						
+						<h2>Lock and hide</h2>
+						<strong>Unfold the "Lock and hide" section:</strong><br />
+						A custom GUI to easily lock and hide unused transform channels of a control icon.
+						This will lock and hide channels according to the check boxes.
+						It will also make these channels visible in the channel box after they've been hidden.<br />
+						Able to use preset options for FK and IK controls: for example, if you check the "IK" radio button, it will uncheck translation channels and will check all other channels, which is typical for IK control objects.<br />
+						This script function is MUCH more handy than the default Maya process.<br />
+					</div>
+					<br /><br />
+				</div>
+				<div id="helpdoc-element-screenshot" class="helpdoc-element">
+					<div class="clear"></div>
+					<h1 id="screensinfo" class="descriptiontit">Screenshots</h1>
+					<br />
+					<div style="width:100%">
+						<div class="helpdoc-screenshot">
+							<a rel="gallery" href="./html_sources/rr_RigBox_Reborn_Curves_Tool_color.png" title="RigBox Main Window" data-mime="Image">
+								<div class="helpdoc-img-container">
+									<span class="helper"></span>
+									<img class="helpdoc-screenshot-img" src="./html_sources/rr_RigBox_Reborn_Curves_Tool_color.png">
+									<span class="helper"></span>
+								</div>
+							</a>
+						</div>
+						<div class="helpdoc-screenshot">
+							<a rel="gallery" href="./html_sources/rr_RigBox_Reborn_Curves_Tool_group.png" title="Progress bar when exporting/importing animation that you can escape and cancel out of." data-mime="Image">
+								<div class="helpdoc-img-container">
+									<span class="helper"></span>
+									<img class="helpdoc-screenshot-img" src="./html_sources/rr_RigBox_Reborn_Curves_Tool_group.png">
+									<span class="helper"></span>
+								</div>
+							</a>
+						</div>
+						<div class="helpdoc-screenshot">
+							<a rel="gallery" href="./html_sources/rr_RigBox_Reborn_Curves_Tool_creation.png" title="The elapse time is printed when import/export is finished." data-mime="Image">
+								<div class="helpdoc-img-container">
+									<span class="helper"></span>
+									<img class="helpdoc-screenshot-img" src="./html_sources/rr_RigBox_Reborn_Curves_Tool_creation.png">
+									<span class="helper"></span>
+								</div>
+							</a>
+						</div>
+						<div class="helpdoc-screenshot">
+							<a rel="gallery" href="./html_sources/wolf_rigged_with_rigbox.png" title="A prompt appears when importing animation to objects that do NOT exist in the current scene." data-mime="Image">
+								<div class="helpdoc-img-container">
+									<span class="helper"></span>
+									<img class="helpdoc-screenshot-img" src="./html_sources/wolf_rigged_with_rigbox.png">
+									<span class="helper"></span>
+								</div>
+							</a>                       
+						</div>
+						<div class="clear"></div>
+					</div>
+					<br /><br />
+				</div>
+				<div class="helpdoc-element ">
+					<div class="clear"></div>
+					<h1 id="addinfo" class="descriptiontit">Development history</h1>
+					<br />
+					<div class="helpdoc-text">
+						<h2>Development by Jennifer Conley, Version 0.x to 1.1.2 : <a href="https://www.highend3d.com/maya/script/rigbox_reborn-curves-tool-for-maya">DOWNLOAD</a></h2>
+						<p>Jen is the one who created the script in 2012 and developped it for a long time, using the Pymel language. To check all her updates, read the change log in the version history section below.<br />
+						The "Curve Tool" was a small part of a much larger project. The "RigBox" scripts were a collection that included several other scripts, such as "RigBox Reborn - Layout Tool for Maya" or "RigBox_Reborn - Hip Averaging for Maya", etc.
+						They were all available at <a href="https://www.highend3d.com/shop/jennifer-conley-392640/free/downloads/c/scripts-plugins?sort=newest">Highend 3D</a>, in the <a href="https://www.highend3d.com/users/jennifer-conley-392640">Jennifer free tools page</a>.<br />
+						<br /></p>
+						<h2>Development by David Saber, Version 3.01 and later : <a href="https://www.dreamcraftdigital.com/rigbox-maya-script/">DOWNLOAD</a></h2>
+						<p>In older Maya version, I was using only the "curve tool" from the Rigbox collection. But since Maya 2022, Autodesk isn't developping Pymel anymore, and Pymel isn't installed by default with a new Maya install.
+						However, Pymel relies on Python to run scripts,
+						and, begining with Maya 2022, Python 3 replaced Python 2. This broke compatibility with old script such as RigBox.<br />
+						So, in 2021, a Reddit user called SheepRSA updated the Curve Tool script to make it compatible with Maya's latest versions. For that, he converted the Python language from version 2 to version 3.
+						Some parts of the RigBox buttons were'nt working anymore as the script wasn't tested much. But the main tools were working, and were compatible with Maya 2022, 2023 and 2024, IF Pymel was installed on top of Maya.<br />
+						At that time, I informed Jen that I could send her this updated script, so she could upload it to her Highend account. But she never answered.
+						Unfortunately, I believe Jen quit the 3d business since a long time.
+						So I uploaded the script to my own Highend account because I know many Maya riggers were waiting for RigBox in Python 3!
+						After that, I noticed many people downloaded the updated script and asked for bug fixes. So I kept updating the script from time to time and I also fixed some bugs that existed since the Jennifer era.<br />
+						Thanks to Jennifer Conley for creating the RigBox tool 12 years ago! It is an awesome tool for rigging.<br />
+						<br /></p>
+						<h2>Development by David Saber, Version 4.00 and later : <a href="https://www.dreamcraftdigital.com/rigbox-maya-script/">DOWNLOAD</a></h2>
+						<p>When Maya 2025 appeared, installing Pymel was not enough to run old Pymel-based scripts.
+						<a href="https://forums.autodesk.com/t5/maya-forum/pymel-not-working-in-maya-2025/m-p/12694906" target="_blank">There is a way to get it to work</a> but it seems complicated. No reason to spend time trying to keep alive an old language.
+						So it was time for Rigbox Version 4, which aims to get rid of the mandatory Pymel installation. Having a pure Python-based script is also better to pursue its development.
+						I started working on a full Python translation in january of 2024.
+						In September, as my students needed this tool on Maya 2025, I sped up the developpment to get the main tools up and running : curve creations, curve coloring, lock and hide, object naming.
+						So the first public release is v4.03. The other RigBox function may be buggy or not working but I hope to fix them in the future.<br />
+						<br /></p>
+					</div>
+					<br /><br />
+				</div>
+				<div class="helpdoc-element helpdoc-element-hidden">
+					<div class="clear"></div>
+					<h1 id="knownissueinfo" class="descriptiontit">Known Issues</h1>
+					<div class="helpdoc-text"></div>
+					<br /><br />
+				</div>
+				<div class="helpdoc-element ">
+					<div class="clear"></div>
+					<h1 id="todo" class="descriptiontit">To do</h1>
+					<br />
+					<div>
+						<div>
+							<h2 id="authorinfo">David Saber's to do list:</h2>
+							<div class="">
+								* BUG : when creating double grouped controls for a full chain : # Error: TypeError: file C:\Users\david\AppData\Roaming\Python\Python310\site-packages\pymel\core\general.py line 238: Maya Node does not exist (or is not unique):: 'nurbsCircle2'.<br />
+								* Get rid of Pymel.<br />
+								* Increments : check if it still works. Increments for name, prefix and suffix, should have a checkbox for each.<br />
+								* In the CSS file, keep only what's necessary<br />
+								* Curve creation : if soft selection is activated, the script can't properly select vertices. As a result : Broken shape : sun. Before any vertex selection operation, the script should deactivate soft selection.<br />
+								* Double grouping : by default, both groups have the same name as the zeroed out object, fix this.<br />
+								* Double grouping : add a tool that will do the same with reset locators.<br />
+								* Grouping section : should be renamed "zeroing out and multiple object creation" or something like that.<br />
+								* Snap does almost the same as the grouping tools, simplify both.<br />
+								* Check todo text file<br />
+								* Add small icons to the creation section, showing the shape of the curve object. If GUI space allows it.<br />
+								* Check all buttons and see if they work.<br />
+								* Default object name : get name from button name then send it to object creation function.<br />
+							</div>
+						</div>
+					</div>
+					<br /><br />
+				</div>
+				<div class="helpdoc-element ">
+					<div class="clear"></div>
+					<h1 id="contactinfo" class="descriptiontit">Contact and credits</h1>
+					<br />
+					<div>
+						<div>
+							<h1 id="authorinfo">Current main developper, Support Contact</h1>
+							<div class="">David Saber: <a href="mailto:davids@davidsaber.com">davids@davidsaber.com</a></div>
+							<div class="">Company Name: DreamCraftDigital</div>
+							<div class="">Company URL: <a href="http://www.DreamCraftDigital.com/" target="_blank">http://www.DreamCraftDigital.com</a></div>
+							<div class="">If you have any feedback or suggestions for the tool, please feel free to contact me. Cheers and happy rigging.</div>
+						</div>
+						<div class="helpdoc-block ">
+							<div class="clear"></div>
+							<h1 id="authorinfo">Previous developpers</h1>
+							<div class="">They're not active anymore on this script but here are their contacts, just in case :</div>
+							<div class="helpdoc-text">Jennifer Conley: <a href="mailto:conley.setup@gmail.com">conley.setup@gmail.com</a></div>
+						</div>
+						<div class="helpdoc-block ">
+							<div class="clear"></div>
+							<h1 id="authorinfo">Credits</h1>
+							<div class="helpdoc-text">Original Python 2 to Python 3 conversion done by : Reddit user SheepRSA https://www.reddit.com/r/Maya/comments/nvg422/update_pymel_for_2022/h14pz74/</div>
+							<div class="helpdoc-text">RigBox 3 icon created by : Jeromine</div>
+						</div>
+					</div>
+					<br /><br />
+				</div>
+				<div class="helpdoc-version helpdoc-element">
+					<div class="clear"></div>
+					<h1 id="versionhistoryinfo" class="descriptiontit">Version History</h1>
+					<br />
+					<div>
+						<table class="helpdoc-table" id="helpdoc-table-version">
+							<colgroup>
+								<col style="width:25px">
+								<col style="width:95px">
+								<col style="width:110px">
+								<col style="width:620px">
+							</colgroup>
+							<tbody>
+								<tr>
+									<th>Version Number</th>
+									<th>Date</th>
+									<th>Developper</th>
+									<th>Version Description</th>
+								</tr>
+								<tr>
+									<td>
+										<p>
+											0.x
+										</p>
+									</td>
+									<td>
+										<p>
+											2010
+										</p>
+									</td>
+									<td>
+										<p>Jennifer Conley</p>
+									</td>
+									<td>
+										* Initial release<br />
+										* Jen said "Rigbox Reborn is a revamped version of my own, personal tool box for rig construction". So there must have been some version prior to V1.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>
+											1
+										</p>
+									</td>
+									<td>
+										<p>
+											2012
+										</p>
+									</td>
+									<td>
+										<p>
+											Jennifer Conley
+										</p>
+									</td>
+									<td>
+										* First public release.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>
+											1.1.0
+										</p>
+									</td>
+									<td>
+										<p>
+											2012
+										</p>
+									</td>
+									<td>
+										<p>
+											Jennifer Conley
+										</p>
+									</td>
+									<td>
+										* Added icon naming features<br />
+										* Added snapping to transform node feature<br />
+										* Added Group naming features<br />
+										* Added constraint type options<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>
+											1.1.1
+										</p>
+									</td>
+									<td>
+										<p>
+											2012
+										</p>
+									</td>
+									<td>
+										<p>
+											Jennifer Conley
+										</p>
+									</td>
+									<td>
+										* Added Pick icon button<br />
+										* Added 'Apply' button to work with pre-existing curves<br />
+										* Added scrollLayout for ease of use<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>
+											1.1.2
+										</p>
+									</td>
+									<td>
+										<p>
+											2012
+										</p>
+									</td>
+									<td>
+										<p>
+											Jennifer Conley
+										</p>
+									</td>
+									<td>
+										* Last version created by Jen, as seen on Highend 3d.<br />
+										* Corrected Lock / Hide checkbox bug.<br />
+										* Updated code for consistancy across RigBox Reborn scripts.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>2</p>
+									</td>
+									<td>
+										<p>2021</p>
+									</td>
+									<td>
+										<p>Nobody</p>
+									</td>
+									<td>
+										Yes, there was NO version 2. I went from Jen's V1 to my V3. The code was converted to Python 3 so I named the updated script "RigBox3", hence the version number 3.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.00</p>
+									</td>
+									<td>
+										<p>2021-06-09</p>
+									</td>
+									<td>
+										<p>SheepRSA</p>
+									</td>
+									<td>
+										* Code <a href="https://www.reddit.com/r/Maya/comments/nvg422/comment/h14pz74/" target="_blank">converted</a> to Python 3.<br />
+										* Some tools were broken after this conversion.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.01</p>
+									</td>
+									<td>
+										<p>2022-01-10</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* arrow curves renamed<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.02</p>
+									</td>
+									<td>
+										<p>2022-05-01</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* better help text file<br />
+										* coloring nurbs curves : orange color added<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.03</p>
+									</td>
+									<td>
+										<p>2022-05-02</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* all files are now inside a folder called "RigBox3"<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.04</p>
+									</td>
+									<td>
+										<p>2022-05-04</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* little GUI improvements.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.05</p>
+									</td>
+									<td>
+										<p>2022-05-10</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* replaced index colors by RGB colors, source : https://forums.autodesk.com/t5/maya-programming/how-to-set-rgb-color-for-drawing-overrides-with-python/td-p/7592153 <br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.06</p>
+									</td>
+									<td>
+										<p>2022-05-11</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* some objects were not created at the scene center, as reported here: https://www.highend3d.com/maya/script/rigbox_reborn-curves-tool-for-maya/bugs/2201 . Fixed.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.07</p>
+									</td>
+									<td>
+										<p>2022-10-13</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* attempt to fix the error message "inconsistent use of tabs and spaces in indentation", which prevents some users to install the script in Maya 2023, as reported here: https://www.highend3d.com/maya/script/rigbox-reborn-curves-tool-for-maya/topics/install-on-maya-2023 .<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>3.08</p>
+									</td>
+									<td>
+										<p>2023-03-16</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* fixed a bug that prevented a multiple objects selection to be colored all at once.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>4.00</p>
+									</td>
+									<td>
+										<p>2024-01-19</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* First tests to get rid of Pymel. Code improvement. No public release. Same for V4.01.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>4.02</p>
+									</td>
+									<td>
+										<p>2024-03-20</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* Pursued tests to get rid of Pymel.<br />
+										* Script and folder renamed "RigBox".<br />
+										* Reorganised the "RigBox" folder and its subfolders.<br />
+										* Renamed lots of files inside the "RigBox" folder.<br />
+										* New help file in HTML format : RigBox_Manual.html. Lots of text added. I watched all RigBox videos from jen, and got new info to rewrite the documentation.<br />
+										* The tool previously needed several py files to work. I put all code into a single file and named it RigBox.py.<br />
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<p>4.03</p>
+									</td>
+									<td>
+										<p>2024-09-23</p>
+									</td>
+									<td>
+										<p>David Saber</p>
+									</td>
+									<td>
+										* Started working on it in September 2024.<br />
+										* Curve creations functions : converted from Pymel to Python.<br />
+										* Curve coloring functions : converted from Pymel to Python.<br />
+										* Lock and hide functions : converted from Pymel to Python.<br />
+										* Revamped naming : now when you create an object, by default, it will get the button's name. Example if you click on "Cube", the curve will be name "Cube" instead of "Curve1". 
+										If you fill the "Control Naming" fields, the object will get these values instead. The name field won't be incremented anymore if a single object is created: it won't get the "0" suffix as in older versions.<br />
+										* This is the first public release, the essential functions are working, but some others are not. I hope to restore all tools in the future.<br />
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
